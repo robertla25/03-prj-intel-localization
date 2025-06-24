@@ -143,7 +143,7 @@ header p {
 
 /* Style for the note below the timeline */
 .timeline-note {
-  background: #2560a8; /* Dark blue background */
+  background: #174075; /* Dark blue background */
   color: white; /* White text for contrast */
   text-align: center; /* Center the text */
   padding: 20px 0; /* Space above and below */
@@ -152,13 +152,44 @@ header p {
   font-weight: bold; /* Make it stand out */
 }
 
+.form-label {
+  font-weight: bold; /* Make form labels bold */
+}
+
+/* Make footer and timeline-note have high contrast */
+footer {
+  background: #174075;    /* Darker blue for better contrast */
+  color: white;           /* Pure white text */
+  text-align: center;
+  padding: 20px 0; /* Space above and below */
+  margin: 0; /* Remove default margin */
+  font-size: 1.1em; /* Slightly larger text */
+  font-weight: bold; /* Make it stand out */
+}
+
+/* Make footer links have high contrast and match the color palette */
+footer a {
+  color: #b5f3fa; /* Light blue for high contrast on dark background */
+  text-decoration: underline; /* Underline for clarity */
+  font-weight: bold; /* Make links stand out */
+}
+
+footer a:hover,
+footer a:focus {
+  color: #ffffff; /* White on hover/focus for even higher contrast */
+  background: #2560a8; /* Optional: subtle background highlight */
+  text-decoration: none; /* Remove underline on hover for effect */
+  border-radius: 3px; /* Slightly rounded corners on hover */
+  padding: 2px 6px; /* Small padding for hover effect */
+}
+
 /* Use Roboto font for all headings */
 h1, h2, h3 {
   font-family: 'Roboto', Arial, sans-serif;
 }
 
 /* Use Montserrat font for all paragraphs */
-p, .timeline-note {
+p, .timeline-note, footer {
   font-family: 'Montserrat', Arial, sans-serif;
 }
 
