@@ -1,0 +1,180 @@
+/* Add your CSS here */
+
+/* Add a blue gradient background to the header */
+header {
+  /* Gradient goes from dark blue at the bottom to light blue at the top */
+  background: linear-gradient(to top, #003366 0%, #4888d6 100%);
+  padding: 40px 0; /* Add space above and below the header content */
+  color: white; /* Make text easier to read on blue background */
+}
+
+/* Center all content inside the header */
+header div {
+  text-align: center; /* Center text and images */
+}
+
+/* Make the Intel logo slightly smaller */
+header img {
+  width: 80px; /* Smaller width for the logo */
+  height: auto; /* Keep the image ratio */
+  display: block; /* Make sure it behaves like a block element */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Make the main heading bigger and limit its width so it wraps nicely */
+header h1 {
+  font-size: 3em; /* Make the heading even larger */
+  margin-top: 20px; /* Add space above the heading */
+  margin-bottom: 10px; /* Add space below the heading */
+  max-width: 400px; /* Limit width so the text wraps to two lines */
+  margin-left: auto; /* Center the heading horizontally */
+  margin-right: auto;
+  word-break: break-word; /* Allow breaking if needed */
+}
+
+/* Make the subheading text bigger */
+header p {
+  font-size: 1.3em; /* Make the paragraph text larger */
+  margin-bottom: 0; /* Remove extra space below */
+}
+
+/* Optional: Make sure header text stands out */
+header h1,
+header p {
+  color: white;
+}
+
+/* Limit the width of header content and center it */
+.header-container {
+  max-width: 700px; /* Set a maximum width for the text */
+  margin: 0 auto;   /* Center the container horizontally */
+  padding: 0 20px;  /* Add a little space on the sides for small screens */
+}
+
+/* Blue line between h1 and p in the header */
+.header-divider {
+  border: none; /* Remove default border */
+  height: 4px; /* Thickness of the line */
+  width: 100px; /* Length of the line */
+  background: #52a0ff; /* Blue color */
+  margin: 20px auto; /* Space above/below and center horizontally */
+  border-radius: 2px; /* Slightly rounded ends */
+}
+
+/* Use Flexbox to display timeline cards in a row and allow wrapping */
+.timeline-section {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 30px 10px;
+  background: #f5faff;
+  max-width: 1080px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  /* Enable scroll snap for horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Snap horizontally, required */
+  scroll-padding-left: 10px; /* Align first card with section padding */
+}
+
+/* Style each timeline card as a box */
+.timeline-card {
+  background: white; /* Card background color */
+  border: 1px solid #cce0ff; /* Light blue border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Soft shadow */
+  padding: 20px; /* Space inside the card */
+  width: 250px; /* Fixed width for all cards */
+  min-width: 250px; /* Prevent shrinking when scrolling */
+  box-sizing: border-box; /* Include padding in width */
+  text-align: center; /* Center text and images */
+  transition: box-shadow 0.2s; /* Smooth hover effect */
+  flex: 0 0 auto; /* Prevent cards from stretching or shrinking */
+  position: relative; /* Needed for overlay positioning */
+  overflow: hidden;   /* Hide anything outside the card */
+  scroll-snap-align: start; /* Snap each card to the start of the scroll area */
+}
+
+/* Style the paragraph as a transparent blue overlay */
+.timeline-card p {
+  display: block; /* Always present, but hidden by opacity */
+  position: absolute; /* Position on top of the card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 42, 94, 0.85); /* Transparent blue */
+  color: #fff; /* White text */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s; /* Fade in/out */
+  padding: 20px 10px; /* Space inside overlay */
+  box-sizing: border-box;
+  display: flex; /* Center text vertically and horizontally */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px; /* Match card corners */
+  font-size: 1em;
+  z-index: 1; /* Make sure overlay is above other content */
+  pointer-events: none; /* Prevent overlay from blocking hover */
+}
+
+/* Fade in the overlay when hovering over the card */
+.timeline-card:hover p {
+  opacity: 1; /* Show the overlay */
+  pointer-events: auto; /* Allow interaction if needed */
+}
+
+/* Optional: Add a hover effect to highlight cards */
+.timeline-card:hover {
+  box-shadow: 0 4px 16px rgba(0,51,102,0.15);
+  border-color: #66aaff;
+}
+
+/* Make sure images inside cards fit nicely */
+.timeline-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* Style for the note below the timeline */
+.timeline-note {
+  background: #2560a8; /* Dark blue background */
+  color: white; /* White text for contrast */
+  text-align: center; /* Center the text */
+  padding: 20px 0; /* Space above and below */
+  margin: 0; /* Remove default margin */
+  font-size: 1.1em; /* Slightly larger text */
+  font-weight: bold; /* Make it stand out */
+}
+
+/* Use Roboto font for all headings */
+h1, h2, h3 {
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Use Montserrat font for all paragraphs */
+p, .timeline-note {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Make timeline cards stack vertically on small screens */
+@media (max-width: 600px) {
+  .timeline-section {
+    flex-direction: column; /* Stack cards vertically */
+    max-width: 100%; /* Use full width */
+    padding: 20px 5px; /* Less padding for small screens */
+    gap: 16px; /* Slightly less gap */
+    overflow-x: visible; /* No horizontal scroll needed */
+    scroll-snap-type: none; /* Disable scroll snap */
+  }
+  .timeline-card {
+    min-width: 0; /* Allow cards to shrink */
+    width: 100%; /* Cards take full width */
+    scroll-snap-align: none; /* Disable scroll snap */
+  }
+}
